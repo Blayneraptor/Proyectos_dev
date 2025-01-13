@@ -232,6 +232,7 @@ body.smoothLoading::before {
 }
 
 .header__switch {
+  display: none;
   position: absolute;
   right: 0;
   color: rgba(255, 255, 255, 0.71);
@@ -239,6 +240,7 @@ body.smoothLoading::before {
 }
 
 .header__switch-lang {
+  display: none;
   cursor: pointer;
   -webkit-transition: all 0.3s linear;
   -o-transition: all 0.3s linear;
@@ -246,11 +248,13 @@ body.smoothLoading::before {
 }
 
 .header__switch-lang_active {
+  display: none;
   color: #fff;
   font-weight: 700;
 }
 
 .header__switch-lang:hover {
+  display: none;
   color: #fff;
 }
 
@@ -1367,6 +1371,7 @@ input[type=number]::-webkit-inner-spin-button {
   }
 
   .header__switch {
+    display: none;
     right: 66px;
   }
 
