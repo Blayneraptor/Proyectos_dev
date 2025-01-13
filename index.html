@@ -301,7 +301,7 @@
                                         src="assets/img/icons/phone.png" alt="contact" class="contact__icon">
                                 </picture>
                             </div>
-                            <div class="text contact__descr"><a href="tel:+79113908087" class="text contact__link"
+                            <div class="text contact__descr"><a href="tel:+34645448914" class="text contact__link"
                                     target="_blank">+34 645 448 914</a></div>
                         </div>
                     </div>
@@ -315,41 +315,43 @@
                             <button type="submit" class="button button__form" data-language="sendMessage">Send Message</button>
                         </div>
                     </form>
-                    <script>// Función para manejar el envío del formulario
-                        function handleSubmit(event) {
-                            event.preventDefault(); // Prevenir el comportamiento por defecto del formulario (enviar)
-                        
-                            var form = document.getElementById("contactForm");
-                        
-                            // Enviar los datos a Formspree usando fetch()
-                            fetch(form.action, {
-                                method: "POST",
-                                body: new FormData(form),
-                            })
-                            .then(response => {
-                                if (response.ok) {
-                                    // Si el envío es exitoso, limpiar los campos del formulario
-                                    form.reset();
-                        
-                                    // Agregar animación de éxito o mostrar un mensaje (opcional)
-                                    alert("¡Mensaje enviado con éxito!");
-                        
-                                    // Aquí puedes agregar animación o algo más si lo deseas
-                                } else {
-                                    // Si hay un error, mostrar un mensaje
-                                    alert("Hubo un error al enviar el mensaje.");
-                                }
-                            })
-                            .catch(error => {
-                                // En caso de error en el envío
-                                console.error("Error al enviar el formulario: ", error);
+                    
+                    <script>
+                    // Función para manejar el envío del formulario
+                    function handleSubmit(event) {
+                        event.preventDefault(); // Prevenir el comportamiento por defecto del formulario (enviar)
+                    
+                        var form = document.getElementById("contactForm");
+                    
+                        // Enviar los datos a Formspree usando fetch()
+                        fetch(form.action, {
+                            method: "POST",
+                            body: new FormData(form),
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                // Si el envío es exitoso, limpiar los campos del formulario
+                                form.reset();
+                    
+                                // Agregar animación de éxito o mostrar un mensaje (opcional)
+                                alert("¡Mensaje enviado con éxito!");
+                    
+                                // Aquí puedes agregar animación o algo más si lo deseas
+                            } else {
+                                // Si hay un error, mostrar un mensaje
                                 alert("Hubo un error al enviar el mensaje.");
-                            });
-                        }
-                        
-                        // Agregar el evento de envío al formulario
-                        document.getElementById("contactForm").addEventListener("submit", handleSubmit);
-                        </script>
+                            }
+                        })
+                        .catch(error => {
+                            // En caso de error en el envío
+                            console.error("Error al enviar el formulario: ", error);
+                            alert("Hubo un error al enviar el mensaje.");
+                        });
+                    }
+                    
+                    // Agregar el evento de envío al formulario
+                    document.getElementById("contactForm").addEventListener("submit", handleSubmit);
+                    </script>
                     
                 </div>
             </div>
