@@ -735,7 +735,7 @@ body.smoothLoading::before {
 
 .skills__item_8::after,
 .skills__item_9::after {
-    width: 80%
+    width: 50%
 }
 
 .skills__item_show::after {
