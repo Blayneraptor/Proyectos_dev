@@ -4,10 +4,10 @@
 
 ## 📋 Índice
 
-- [📖 Inicio](#-sobre-mí)
-- [💼 Sobre mi](#-proyectos-destacados)
-- [🛠️ Skills](#%EF%B8%8F-tecnologías)
-- [📂 Proyectos](#-estructura-del-repositorio)
+- [📖 Inicio]()
+- [💼 Sobre mi]()
+- [🛠️ Skills]()
+- [📂 Proyectos]()
 - [📞 Contacto](#-contacto)
 
 ---
@@ -24,7 +24,7 @@ Hola, soy Jose (Blayneraptor) 👋, un apasionado/a desarrollador/a en constante
 
 ## 💼 Proyectos Destacados
 
-### 🖼️ Proyecto 1: [Blayne Piano Covers](enlace_al_proyecto_si_hay_un_demo)
+### 🖼️ Proyecto 1: [Blayne Piano Covers](#https://blayneraptor.github.io/Portfolio_Piano/)
 
 **Descripción:** Grabo covers de canciones en piano que voy aprendiendo y las subo a esta web.
 
@@ -32,7 +32,7 @@ Hola, soy Jose (Blayneraptor) 👋, un apasionado/a desarrollador/a en constante
 - 🌐 **Demo:** [Enlace a la demo](#https://blayneraptor.github.io/Portfolio_Piano/)
 - 📂 **Código:** [Repositorio del proyecto](#https://github.com/Blayneraptor/Portfolio_Piano)
 
-### 🖥️ Proyecto 2: [CV Web Couso](enlace_al_proyecto_si_hay_un_demo)
+### 🖥️ Proyecto 2: [CV Web Couso](#https://blayneraptor.github.io/CV_Couso_Web/)
 
 **Descripción:** Un curriculum en forma de Web que quise construir.
 
@@ -62,4 +62,4 @@ Estas son algunas de las herramientas y tecnologías que utilizo en mis proyecto
 
 ---
 
-✨ _Gracias por visitar mi portafolio. ¡Espero que disfrutes explorando mis proyectos tanto como yo disfruté creándolos!_ ✨
+✨ _Gracias por visitar mi portafolio. ¡Espero que disfrutes explorando mis proyectos tanto como yo disfruté creándolos!_
