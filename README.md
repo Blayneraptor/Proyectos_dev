@@ -24,21 +24,21 @@ Hola, soy Jose (Blayneraptor) 👋, un apasionado/a desarrollador/a en constante
 
 ## 💼 Proyectos Destacados
 
-### 🖼️ Proyecto 1: [Blayne Piano Covers](#https://blayneraptor.github.io/Portfolio_Piano/)
+### 🖼️ Proyecto 1: [Blayne Piano Covers](https://blayneraptor.github.io/Portfolio_Piano/)
 
 **Descripción:** Grabo covers de canciones en piano que voy aprendiendo y las subo a esta web.
 
 - 🔧 **Tecnologías:** HTML, CSS, JavaScript
-- 🌐 **Demo:** [Enlace a la demo](#https://blayneraptor.github.io/Portfolio_Piano/)
-- 📂 **Código:** [Repositorio del proyecto](#https://github.com/Blayneraptor/Portfolio_Piano)
+- 🌐 **Demo:** [Enlace a la demo](https://blayneraptor.github.io/Portfolio_Piano/)
+- 📂 **Código:** [Repositorio del proyecto](https://github.com/Blayneraptor/Portfolio_Piano)
 
-### 🖥️ Proyecto 2: [CV Web Couso](#https://blayneraptor.github.io/CV_Couso_Web/)
+### 🖥️ Proyecto 2: [CV Web Couso](https://blayneraptor.github.io/CV_Couso_Web/)
 
 **Descripción:** Un curriculum en forma de Web que quise construir.
 
 - 🔧 **Tecnologías:** HTML, CSS, JavaScript
-- 🌐 **Demo:** [Enlace a la demo](#https://blayneraptor.github.io/CV_Couso_Web/)
-- 📂 **Código:** [Repositorio del proyecto](#https://github.com/Blayneraptor/CV_Couso_Web)
+- 🌐 **Demo:** [Enlace a la demo](https://blayneraptor.github.io/CV_Couso_Web/)
+- 📂 **Código:** [Repositorio del proyecto](https://github.com/Blayneraptor/CV_Couso_Web)
 
 > ¡Sigue explorando más proyectos en este repositorio! 😄
 
