@@ -404,6 +404,7 @@ body.smoothLoading::before {
   color: #fff;
   margin-bottom: 10px;
   text-align: center;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .logo__subtitle-wrapper {

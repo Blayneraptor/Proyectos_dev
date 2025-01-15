@@ -485,7 +485,8 @@ body.smoothLoading::before {
     font: 500 56px Hind, sans-serif;
     color: #fff;
     margin-bottom: 10px;
-    text-align: center
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .logo__subtitle-wrapper {
