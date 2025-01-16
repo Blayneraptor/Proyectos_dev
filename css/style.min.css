@@ -478,7 +478,7 @@ body.smoothLoading::before {
 .logo__image {
     width: 100%;
     border: 3px solid #fff;
-    border-radius: 50%
+    border-radius: 50%;
 }
 
 .logo__title {
