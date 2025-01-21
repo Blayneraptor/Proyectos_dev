@@ -1210,7 +1210,9 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .title {
-        font-size: calc(16px + 1.7948717949vw)
+        margin: 2rem;
+        font-size: calc(16px + 1.7948717949vw);
+        text-shadow: 4px 10px 7px rgba(0, 0, 0, 0.3); /* Sombra del texto */
     }
 }
 
