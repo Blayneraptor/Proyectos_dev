@@ -1312,6 +1312,22 @@ input[type=number]::-webkit-inner-spin-button {
     flex: 0 0 100%;
   }
 
+  @media (max-width: 768px) {
+    .about {
+      padding: 0px; /* Agrega espacio alrededor del contenido */
+    }
+  
+    .about__wrapper {
+      text-align: center; /* Asegura que todo esté centrado en texto */
+      padding: 0 15px; /* Espacio interno lateral para evitar que el texto toque los bordes */
+    }
+  
+    .about__author {
+      margin-bottom: 20px; /* Espacio entre el bloque y otros elementos */
+    }
+  }
+
+
 @supports (-webkit-appearance:none) {
 
 }

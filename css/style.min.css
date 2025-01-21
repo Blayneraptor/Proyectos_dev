@@ -661,6 +661,33 @@ body.smoothLoading::before {
     flex: 0 0 50%
 }
 
+@media (max-width: 768px) {
+    .about {
+      padding: 0px; /* Agrega espacio alrededor del contenido */
+    }
+  
+    .about__wrapper {
+      text-align: center; /* Asegura que todo esté centrado en texto */
+      padding: 0 15px; /* Espacio interno lateral para evitar que el texto toque los bordes */
+    }
+   
+    .about__author {
+      margin-bottom: 20px; /* Espacio entre el bloque y otros elementos */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .social__about {
+      justify-content: space-around; /* Asegura que los íconos estén distribuidos horizontalmente */
+      margin: 30px 0; /* Ajusta el margen */
+    }
+  
+    .social__icon {
+      width: 38px; /* Reduce ligeramente el tamaño de los íconos en móviles */
+      height: 38px;
+    }
+  }
+
 .skills {
     padding: 90px 0;
     background: #f2f2f2
