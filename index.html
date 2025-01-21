@@ -28,7 +28,7 @@
                                 data-language="skills">Skills</a></li>
                         <li class="header__item"><a data-scroll href="#portfolio" class="header__link"
                                 data-language="portfolio">Proyectos</a></li>
-                        
+
                         <li class="header__item"><a data-scroll href="#contact" class="header__link"
                                 data-language="contact">Contacto</a></li>
                     </ul>
@@ -68,9 +68,11 @@
                         <h2 class="title title__about" data-language="aboutTitle">Hola, Soy Jose Couso</h2>
                         <div class="subtitle subtitle__about" data-language="aboutSubtitle">Web Developer de Madrid
                         </div>
+
+
                         <div class="text text__about" data-language="aboutText"></div>
                         <ul class="social social__about">
-                            
+
                             <li class="social__item"><a href="https://t.me/Blayneraptor" class="social__link"
                                     target="_blank">
                                     <picture>
@@ -92,14 +94,105 @@
                                             src="assets/img/icons/gmail.png" alt="Mail" class="social__icon">
                                     </picture>
                                 </a></li>
-                        </ul><button class="button button__about"><span data-language="aboutResume">Descarga mi CV</span>
+                        </ul><button class="button button__about"><span data-language="aboutResume">Descarga mi
+                                CV</span>
                             <picture>
                                 <source srcset="assets/img/icons/download.webp" type="image/webp"><img
                                     class="button__download" src="assets/img/icons/download.png" alt="download">
                             </picture>
                         </button>
                     </div>
-                    <div class="about__work"></div>
+                    <div class="about__work">
+
+                        <div class="skill-tag-cloud"></div>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+                        <script>
+                            const scn = new THREE.Scene(),
+                                cam = new THREE.PerspectiveCamera(75, 1, 0.1, 1e3),
+                                rndr = new THREE.WebGLRenderer({ antialias: true, alpha: true }),
+                                grp = new THREE.Group(),
+                                ldr = new THREE.TextureLoader(),
+                                icons = [
+                                    'arduino', 'azure', 'bootstrap', 'chrome', 'css', 'express', 'figma', 'git', 'github',
+                                    'html', 'javascript', 'jquery', 'mongo', 'nextjs', 'nodejs', 'photoshop',
+                                    'python', 'react', 'rpi', 'sass', 'sql', 'typescript', 'vscode'
+                                ].map(i => `assets/img/${i}.svg`),
+                                sps = [];
+
+                            // Variables iniciales
+                            let r = 40; // Radio inicial
+                            let s = 8; // Tamaño inicial de iconos
+                            let canvasSize = 500; // Tamaño inicial del canvas
+
+                            // Ajustar según el tamaño de pantalla
+                            if (window.innerWidth <= 768) { // Pantallas móviles
+                                r = 27; // Radio más pequeño
+                                s = 6; // Iconos más pequeños
+                                canvasSize = 300; // Tamaño del canvas reducido
+                            }
+
+                            rndr.setSize(canvasSize, canvasSize); // Ajusta el tamaño dinámicamente
+                            const c = document.querySelector('.skill-tag-cloud');
+                            c.appendChild(rndr.domElement);
+
+                            icons.forEach((p, i) => ldr.load(p, t => {
+                                const phi = Math.acos(-1 + 2 * i / icons.length),
+                                    theta = Math.sqrt(icons.length * Math.PI) * phi,
+                                    sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: t }));
+                                sp.scale.set(s, s, 1); // Ajusta la escala de los iconos
+                                sp.position.set(
+                                    r * Math.cos(theta) * Math.sin(phi),
+                                    r * Math.sin(theta) * Math.sin(phi),
+                                    r * Math.cos(phi)
+                                );
+                                grp.add(sp);
+                                sps.push(sp);
+                            }));
+
+                            scn.add(grp);
+                            cam.position.z = r + 30; // Ajusta la posición de la cámara
+
+                            (function anm() {
+                                requestAnimationFrame(anm);
+                                grp.rotation.y += 0.002;
+                                grp.children.forEach(s => s.lookAt(cam.position));
+                                rndr.render(scn, cam);
+                            })();
+                            const ry = new THREE.Raycaster();
+
+                            let canvasRect = rndr.domElement.getBoundingClientRect();
+
+                            function updateCanvasRect() {
+                                canvasRect = rndr.domElement.getBoundingClientRect();
+                            }
+
+                            window.addEventListener('scroll', updateCanvasRect);
+                            window.addEventListener('resize', updateCanvasRect);
+
+                            window.addEventListener('click', e => {
+                                if (e.clientX >= canvasRect.left && e.clientX <= canvasRect.right && e.clientY >= canvasRect.top && e.clientY <= canvasRect.bottom) {
+                                    ry.setFromCamera({ x: 2 * (e.clientX - canvasRect.left) / 375 - 1, y: 2 * -(e.clientY - canvasRect.top) / 375 + 1 }, cam);
+                                    const it = ry.intersectObjects(sps)[0]; it && grp.attach(it.object);
+                                }
+                            });
+
+                            let mx = 0, my = 0;
+                            window.addEventListener('mousemove', e => {
+                                if (e.clientX >= canvasRect.left && e.clientX <= canvasRect.right && e.clientY >= canvasRect.top && e.clientY <= canvasRect.bottom) {
+                                    mx = 0.01 * ((e.clientX - canvasRect.left) / 375 - 1); // Reduce el impacto del movimiento horizontal
+                                    my = 0.01 * (-(e.clientY - canvasRect.top) / 375 + 1); // Reduce el impacto del movimiento vertical
+                                }
+                            });
+
+                            (function anm() {
+                                requestAnimationFrame(anm);
+                                grp.rotation.y += 0.001 + mx; // Velocidad base más baja en el eje Y
+                                grp.rotation.x += my * 0.5;  // Reduce aún más el impacto del ratón en el eje X
+                                grp.children.forEach(s => s.lookAt(cam.position)); // Asegura que los íconos miren siempre a la cámara
+                                rndr.render(scn, cam);
+                            })();
+                        </script>
+                    </div>
                 </div>
             </div>
         </div>
@@ -119,15 +212,15 @@
                         <div class="skills__item skills__item_5"><span class="skills__language"
                                 data-language="bem">MySQL</span> <span class="skills__percent">60%</span></div>
                         <div class="skills__item skills__item_6"><span class="skills__language">Canva</span>
-                            <span class="skills__percent">80%</span></div>
+                            <span class="skills__percent">80%</span>
+                        </div>
                         <div class="skills__item skills__item_7"><span class="skills__language">GIT</span> <span
                                 class="skills__percent">65%</span></div>
                         <div class="skills__item skills__item_8"><span class="skills__language"
                                 data-language="adaptive">Android</span> <span class="skills__percent">55%</span>
                         </div>
                         <div class="skills__item skills__item_9"><span class="skills__language"
-                                data-language="cross">Python</span> <span
-                                class="skills__percent">50%</span></div>
+                                data-language="cross">Python</span> <span class="skills__percent">50%</span></div>
                     </div>
                 </div>
             </div>
@@ -144,7 +237,8 @@
                                         href="https://blayneraptor.github.io/Portfolio_Piano/" target="_blank">
                                         <picture>
                                             <source srcset="assets/img/projects/1.png" type="image/webp"><img
-                                                src="assets/img/projects/1.png" alt="Piano Covers" class="project__image">
+                                                src="assets/img/projects/1.png" alt="Piano Covers"
+                                                class="project__image">
                                         </picture>
                                     </a></div>
                                 <div class="project__img project__img_mobile"><a
@@ -163,26 +257,28 @@
                         <div class="project__item">
                             <div class="project__name" data-language="projectTwo">Curriculum Web Jose Couso</div>
                             <div class="project__image-wrapper">
-                                <div class="project__img project__img_pc"><a href="https://blayneraptor.github.io/CV_Couso_Web/"
-                                        target="_blank">
+                                <div class="project__img project__img_pc"><a
+                                        href="https://blayneraptor.github.io/CV_Couso_Web/" target="_blank">
                                         <picture>
                                             <source srcset="assets/img/projects/2.png" type="image/webp"><img
-                                                src="assets/img/projects/2.png" alt="Curriculum Web Jose Couso" class="project__image">
+                                                src="assets/img/projects/2.png" alt="Curriculum Web Jose Couso"
+                                                class="project__image">
                                         </picture>
                                     </a></div>
                                 <div class="project__img project__img_mobile"><a
                                         href="https://blayneraptor.github.io/CV_Couso_Web/" target="_blank">
                                         <picture>
                                             <source srcset="assets/img/projects/2_2.png" type="image/webp"><img
-                                                src="assets/img/projects/2_2.png" alt="Curriculum Web Jose Couso" class="project__image">
+                                                src="assets/img/projects/2_2.png" alt="Curriculum Web Jose Couso"
+                                                class="project__image">
                                         </picture>
                                     </a></div>
                             </div>
                             <div class="project__github-link" data-language="projectLink">Link Proyecto</div><a
-                                href="https://blayneraptor.github.io/CV_Couso_Web/" class="project__link" target="_blank"
-                                data-language="projectLinkTwo">Curriculum Web Jose Couso</a>
+                                href="https://blayneraptor.github.io/CV_Couso_Web/" class="project__link"
+                                target="_blank" data-language="projectLinkTwo">Curriculum Web Jose Couso</a>
                         </div>
-                       <!-- <div class="project__item">
+                        <!-- <div class="project__item">
                             <div class="project__name" data-language="projectThree">MovieApp - Application</div>
                             <div class="project__image-wrapper">
                                 <div class="project__img project__img_pc"><a
@@ -259,7 +355,7 @@
         <div class="education" id="education">
             <div class="container">
                 <div class="education__wrapper education__wrapper_count">
-                    
+
                 </div>
             </div>
         </div>
@@ -304,57 +400,61 @@
                             </div>
                             <div class="text contact__descr">
                                 <a href="tel:+34645448914" id="copyPhone" class="text contact__link">+34 645 448 914</a>
-                              </div>
+                            </div>
                         </div>
                     </div>
                     <form class="contact__form" method="POST" action="https://formspree.io/f/xannaejy" id="contactForm">
                         <div class="contact__form-wrapper">
-                            <input type="text" class="text text__contact contact__form-name" name="entry.559813857" placeholder="Name" required data-language="name">
-                            <input type="email" class="text text__contact contact__form-mail" name="entry.696487056" placeholder="Email" required data-language="mail">
+                            <input type="text" class="text text__contact contact__form-name" name="entry.559813857"
+                                placeholder="Name" required data-language="name">
+                            <input type="email" class="text text__contact contact__form-mail" name="entry.696487056"
+                                placeholder="Email" required data-language="mail">
                         </div>
-                        <textarea class="text text__contact contact__form-textarea" name="entry.1621792291" id="message" placeholder="Message..." required data-language="message"></textarea>
+                        <textarea class="text text__contact contact__form-textarea" name="entry.1621792291" id="message"
+                            placeholder="Message..." required data-language="message"></textarea>
                         <div class="contact__form-submit">
-                            <button type="submit" class="button button__form" data-language="sendMessage">Send Message</button>
+                            <button type="submit" class="button button__form" data-language="sendMessage">Send
+                                Message</button>
                         </div>
                     </form>
-                    
+
                     <script>
-                    // Función para manejar el envío del formulario
-                    function handleSubmit(event) {
-                        event.preventDefault(); // Prevenir el comportamiento por defecto del formulario (enviar)
-                    
-                        var form = document.getElementById("contactForm");
-                    
-                        // Enviar los datos a Formspree usando fetch()
-                        fetch(form.action, {
-                            method: "POST",
-                            body: new FormData(form),
-                        })
-                        .then(response => {
-                            if (response.ok) {
-                                // Si el envío es exitoso, limpiar los campos del formulario
-                                form.reset();
-                    
-                                // Agregar animación de éxito o mostrar un mensaje (opcional)
-                                alert("¡Mensaje enviado con éxito!");
-                    
-                                // Aquí puedes agregar animación o algo más si lo deseas
-                            } else {
-                                // Si hay un error, mostrar un mensaje
-                                alert("Hubo un error al enviar el mensaje.");
-                            }
-                        })
-                        .catch(error => {
-                            // En caso de error en el envío
-                            console.error("¡Mensaje enviado con éxito!", error);
-                            alert("¡Mensaje enviado con éxito!");
-                        });
-                    }
-                    
-                    // Agregar el evento de envío al formulario
-                    document.getElementById("contactForm").addEventListener("submit", handleSubmit);
+                        // Función para manejar el envío del formulario
+                        function handleSubmit(event) {
+                            event.preventDefault(); // Prevenir el comportamiento por defecto del formulario (enviar)
+
+                            var form = document.getElementById("contactForm");
+
+                            // Enviar los datos a Formspree usando fetch()
+                            fetch(form.action, {
+                                method: "POST",
+                                body: new FormData(form),
+                            })
+                                .then(response => {
+                                    if (response.ok) {
+                                        // Si el envío es exitoso, limpiar los campos del formulario
+                                        form.reset();
+
+                                        // Agregar animación de éxito o mostrar un mensaje (opcional)
+                                        alert("¡Mensaje enviado con éxito!");
+
+                                        // Aquí puedes agregar animación o algo más si lo deseas
+                                    } else {
+                                        // Si hay un error, mostrar un mensaje
+                                        alert("Hubo un error al enviar el mensaje.");
+                                    }
+                                })
+                                .catch(error => {
+                                    // En caso de error en el envío
+                                    console.error("¡Mensaje enviado con éxito!", error);
+                                    alert("¡Mensaje enviado con éxito!");
+                                });
+                        }
+
+                        // Agregar el evento de envío al formulario
+                        document.getElementById("contactForm").addEventListener("submit", handleSubmit);
                     </script>
-                    
+
                 </div>
             </div>
         </div>
@@ -363,7 +463,7 @@
         <div class="container">
             <div class="footer__wrapper">
                 <ul class="social social__footer">
-                    
+
                     <li class="social__item"><a href="https://t.me/Blayneraptor" class="social__link" target="_blank">
                             <picture>
                                 <source srcset="assets/img/icons/telegram.webp" type="image/webp"><img
@@ -393,28 +493,28 @@
     <script>
         // Función genérica para copiar texto al portapapeles
         function copyToClipboard(text) {
-          navigator.clipboard.writeText(text).then(() => {
-            alert('¡Copiado al portapapeles!');
-          }).catch(err => {
-            console.error('Error al copiar al portapapeles:', err);
-          });
+            navigator.clipboard.writeText(text).then(() => {
+                alert('¡Copiado al portapapeles!');
+            }).catch(err => {
+                console.error('Error al copiar al portapapeles:', err);
+            });
         }
-      
+
         // Listener para el número de teléfono
         document.getElementById('copyPhone').addEventListener('click', function (event) {
-          event.preventDefault(); // Evita la acción predeterminada
-          const phoneNumber = '+34645448914';
-          copyToClipboard(phoneNumber);
+            event.preventDefault(); // Evita la acción predeterminada
+            const phoneNumber = '+34645448914';
+            copyToClipboard(phoneNumber);
         });
-      
+
         // Listener para el correo electrónico
         document.getElementById('copyEmail').addEventListener('click', function (event) {
-          event.preventDefault(); // Evita la acción predeterminada
-          const email = 'cousoworks@gmail.com';
-          copyToClipboard(email);
+            event.preventDefault(); // Evita la acción predeterminada
+            const email = 'cousoworks@gmail.com';
+            copyToClipboard(email);
         });
-      </script>
-      
+    </script>
+
 </body>
 
 </html>

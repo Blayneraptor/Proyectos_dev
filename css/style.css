@@ -1185,6 +1185,25 @@ input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
   display: none;
 }
+.skill-tag-cloud {
+  width: 375px; /* Asegura un ancho definido */
+  height: 355px; /* Mantén la altura definida */
+  aspect-ratio: 1;
+  margin: 15rem; /* Centra horizontalmente */
+  background: transparent; /* Fondo transparente */
+  display: flex; /* Usa Flexbox para el contenido interno */
+  justify-content: center; /* Asegura que el contenido esté centrado horizontalmente */
+  align-items: center; /* Asegura que el contenido esté centrado verticalmente */
+}
+
+@media (max-width: 768px) { /* Estilos para pantallas de tamaño tablet y móvil */
+  .skill-tag-cloud {
+      width: 100px; /* Reduce el ancho */
+      height: 250px; /* Reduce la altura */
+      margin: 2rem auto; /* Ajusta el margen para móviles */
+    }
+}
+
 
 @supports (-webkit-appearance:none) {
   .bg__cover {
