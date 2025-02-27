@@ -488,37 +488,42 @@
                             </picture>
                         </a></li>
                 </ul>
-                <p class="text" data-language="footerDeveloper">© 2025 hecho por Blayneraptor</p>
+                <p class="text" data-language="footerDeveloper">© <span id="year"></span>Blayneraptor</p>
             </div>
-        </div>
-    </footer>
-    <script src="js/scripts/libs.min.js"></script>
-    <script src="js/main.min.js"></script>
-    <script>
-        // Función genérica para copiar texto al portapapeles
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert('¡Copiado al portapapeles!');
-            }).catch(err => {
-                console.error('Error al copiar al portapapeles:', err);
-            });
-        }
-
-        // Listener para el número de teléfono
-        document.getElementById('copyPhone').addEventListener('click', function (event) {
-            event.preventDefault(); // Evita la acción predeterminada
-            const phoneNumber = '+34645448914';
-            copyToClipboard(phoneNumber);
-        });
-
-        // Listener para el correo electrónico
-        document.getElementById('copyEmail').addEventListener('click', function (event) {
-            event.preventDefault(); // Evita la acción predeterminada
-            const email = 'cousoworks@gmail.com';
-            copyToClipboard(email);
-        });
-    </script>
-
-</body>
+            </div>
+            </footer>
+            <script src="js/scripts/libs.min.js"></script>
+            <script src="js/main.min.js"></script>
+            <script>
+                // Función genérica para copiar texto al portapapeles
+                function copyToClipboard(text) {
+                    navigator.clipboard.writeText(text).then(() => {
+                        alert('¡Copiado al portapapeles!');
+                    }).catch(err => {
+                        console.error('Error al copiar al portapapeles:', err);
+                    });
+                }
+            
+                // Listener para el número de teléfono
+                document.getElementById('copyPhone').addEventListener('click', function (event) {
+                    event.preventDefault(); // Evita la acción predeterminada
+                    const phoneNumber = '+34645448914';
+                    copyToClipboard(phoneNumber);
+                });
+            
+                // Listener para el correo electrónico
+                document.getElementById('copyEmail').addEventListener('click', function (event) {
+                    event.preventDefault(); // Evita la acción predeterminada
+                    const email = 'cousoworks@gmail.com';
+                    copyToClipboard(email);
+                });
+            
+                // Actualizar el año en el footer dinámicamente
+                const yearElement = document.getElementById('year');
+                const currentYear = new Date().getFullYear();
+                yearElement.textContent = currentYear;
+            </script>
+            </body>
+            
 
 </html>
