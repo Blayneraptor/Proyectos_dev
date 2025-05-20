@@ -5,7 +5,8 @@ $(document).ready(function () {
   setTimeout(() => {
     $("body").removeClass("smoothLoading");
   }, 1600);
-  // Initial slider  $(".project__slider").slick({
+  // Initial slider 
+  $(".project__slider").slick({
     autoplay: true,
     dots: true,
     arrows: true,
@@ -17,7 +18,7 @@ $(document).ready(function () {
       {
         breakpoint: 768,
         settings: {
-          arrows: true,
+          arrows: false,
           dots: true
         }
       }
