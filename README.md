@@ -40,6 +40,30 @@ Hola, soy Jose (Blayneraptor) 👋, un apasionado/a desarrollador/a en constante
 - 🌐 **Demo:** [Enlace a la demo](https://blayneraptor.github.io/CV_Couso_Web/)
 - 📂 **Código:** [Repositorio del proyecto](https://github.com/Blayneraptor/CV_Couso_Web)
 
+### 📱 Proyecto 3: [Tienda de móviles - Blayne Shop](https://tienda-moviles-react.vercel.app/)
+
+**Descripción:** Aplicación e-commerce para la venta de dispositivos móviles con carrito de compras.
+
+- 🔧 **Tecnologías:** React, CSS, JavaScript
+- 🌐 **Demo:** [Enlace a la demo](https://tienda-moviles-react.vercel.app/)
+- 📂 **Código:** [Repositorio del proyecto](https://github.com/Blayneraptor/tienda-moviles-react)
+
+### 🎬 Proyecto 4: [Buscador Anime Vue](https://animeblayneweb.vercel.app/)
+
+**Descripción:** Aplicación web para buscar información sobre series de anime utilizando Vue.js.
+
+- 🔧 **Tecnologías:** Vue.js, CSS, JavaScript, APIs
+- 🌐 **Demo:** [Enlace a la demo](https://animeblayneweb.vercel.app/)
+- 📂 **Código:** [Repositorio del proyecto](https://github.com/Blayneraptor/vue-anime-app)
+
+### 🏸 Proyecto 5: [E-commerce Padel Shop](https://e-commerce-padel.vercel.app/)
+
+**Descripción:** Tienda online completa especializada en productos de pádel.
+
+- 🔧 **Tecnologías:** React, TailwindCSS, JavaScript
+- 🌐 **Demo:** [Enlace a la demo](https://e-commerce-padel.vercel.app/)
+- 📂 **Código:** [Repositorio del proyecto](https://github.com/Blayneraptor/e-commerce-padel)
+
 > ¡Sigue explorando más proyectos en este repositorio! 😄
 
 ---
