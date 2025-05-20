@@ -477,6 +477,9 @@ body.smoothLoading::before {
   margin-right: auto;
   display: flex;
   justify-content: center;
+  cursor: pointer; /* Indica que es clickable */
+  position: relative;
+  z-index: 10;
 }
 
 .logo__image {
@@ -485,6 +488,73 @@ body.smoothLoading::before {
     border-radius: 50%;
     object-fit: cover;
     object-position: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo__author:hover .logo__image {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255,255,255,0.5);
+}
+
+/* Modal para imagen ampliada */
+.profile-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile-modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.profile-modal-content {
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    animation: zoomIn 0.3s ease;
+}
+
+.profile-modal-image {
+    width: 100%;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    object-fit: cover;
+}
+
+.profile-modal-close {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+    background: rgba(0,0,0,0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 0;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 
 .logo__title {
