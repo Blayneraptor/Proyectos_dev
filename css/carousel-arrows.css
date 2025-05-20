@@ -1,0 +1,96 @@
+/* Modern carousel arrows */
+.slick-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 5;
+    transition: all 0.3s ease;
+    border: none;
+    opacity: 1;
+    display: block !important; /* Asegurar que sean visibles */
+}
+
+.slick-prev {
+    left: -60px;
+}
+
+.slick-next {
+    right: -60px;
+}
+
+/* Flechas personalizadas */
+.slick-arrow::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    border-style: solid;
+    border-width: 2px 2px 0 0;
+    transition: all 0.3s ease;
+}
+
+.slick-prev::before {
+    transform: translate(-25%, -50%) rotate(-135deg);
+    border-color: #333;
+}
+
+.slick-next::before {
+    transform: translate(-75%, -50%) rotate(45deg);
+    border-color: #333;
+}
+
+.slick-arrow:hover {
+    background-color: #48b14d;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 3px 8px rgba(72, 177, 77, 0.4);
+}
+
+.slick-arrow:hover::before {
+    border-color: white;
+}
+
+/* Desktop styles */
+@media (min-width: 769px) {
+    .project__wrapper {
+        padding: 0 70px;
+        position: relative;
+    }
+
+    .project__slider .slick-arrow {
+        display: block !important;
+    }
+    
+    /* Animación de pulso para las flechas */
+    @keyframes pulse {
+        0% { transform: translateY(-50%) scale(1); }
+        50% { transform: translateY(-50%) scale(1.05); }
+        100% { transform: translateY(-50%) scale(1); }
+    }
+
+    .slick-arrow:not(:hover) {
+        animation: pulse 2s infinite;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .slick-arrow {
+        display: none !important;
+    }
+
+    .project__wrapper {
+        padding: 0;
+    }
+
+    .project__slider {
+        margin: 0;
+    }
+}

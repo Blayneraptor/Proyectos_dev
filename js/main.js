@@ -5,12 +5,23 @@ $(document).ready(function () {
   setTimeout(() => {
     $("body").removeClass("smoothLoading");
   }, 1600);
-
-  // Initial slider
-
-  $(".project__slider").slick({
+  // Initial slider  $(".project__slider").slick({
     autoplay: true,
     dots: true,
+    arrows: true,
+    prevArrow: '<button type="button" class="slick-prev" aria-label="Previous"></button>',
+    nextArrow: '<button type="button" class="slick-next" aria-label="Next"></button>',
+    autoplaySpeed: 4000,
+    pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: true,
+          dots: true
+        }
+      }
+    ]
   });
 
   // Smooth Scrool to anchor for all browser
