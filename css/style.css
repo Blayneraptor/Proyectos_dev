@@ -364,6 +364,7 @@ body.smoothLoading::before {
   animation-fill-mode: forwards;
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
+  text-align: center;
 }
 
 @-webkit-keyframes loadAnimation {
@@ -391,10 +392,14 @@ body.smoothLoading::before {
 .logo__author {
   max-width: 170px;
   margin-bottom: 55px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .logo__image {
-  width: 100% ;
+  width: 100%;
   border: 3px solid #fff;
   border-radius: 50%;
 }
@@ -1531,10 +1536,10 @@ input[type=number]::-webkit-inner-spin-button {
     justify-content: stretch;
     padding-top: 150px;
   }
-
   .logo__author {
     max-width: 170px;
-    
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .logo__title {
