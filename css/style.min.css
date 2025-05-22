@@ -480,6 +480,8 @@ body.smoothLoading::before {
   cursor: pointer; /* Indica que es clickable */
   position: relative;
   z-index: 10;
+  
+  
 }
 
 .logo__image {
