@@ -689,39 +689,39 @@ body.smoothLoading::before {
 }
 
 .skills__item_1::after {
-  width: 85%;
+  width: 95%;
 }
 
 .skills__item_2::after {
-  width: 75%;
+  width: 85%;
 }
 
 .skills__item_3::after {
-  width: 60%;
+  width: 80%;
 }
 
 .skills__item_4::after {
-  width: 55%;
+  width: 85%;
 }
 
 .skills__item_5::after {
-  width: 60%;
+  width: 70%;
 }
 
 .skills__item_6::after {
-  width: 80%;
+  width: 90%;
 }
 
 .skills__item_7::after {
-  width: 65%;
+  width: 75%;
 }
 
 .skills__item_8::after {
-  width: 80%;
+  width: 90%;
 }
 
 .skills__item_9::after {
-  width: 80%;
+  width: 90%;
 }
 
 .skills__item_show::after {
