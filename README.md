@@ -14,11 +14,11 @@
 
 ## 📖 Sobre mí
 
-Hola, soy Jose (Blayneraptor) 👋, un apasionado/a desarrollador/a en constante aprendizaje. Este repositorio refleja mi progreso y creatividad a medida que construyo proyectos y exploro nuevas tecnologías.
+Hola, soy Jose 👋, un apasionado/a desarrollador/a en constante aprendizaje. Este repositorio refleja mi progreso y creatividad a medida que construyo proyectos y exploro nuevas tecnologías.
 
 - 🔍 Siempre curioso/a por aprender algo nuevo.
 - 💡 Entusiasta del desarrollo web, diseño y automatización.
-- 🌱 Actualmente explorando JS,HTML,CSS...
+- 🌱 Actualmente explorando JS,React,TailwindCSS...
 
 ---
 
