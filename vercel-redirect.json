@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://www.cousoworks.es/$1",
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "proyectos-dev.vercel.app"
+        }
+      ]
+    }
+  ]
+}
