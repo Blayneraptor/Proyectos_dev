@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^blayneraptor\.github\.io$ [OR]
+RewriteCond %{HTTP_HOST} ^proyectos-dev\.vercel\.app$
+RewriteRule ^(.*)$ https://www.cousoworks.es/$1 [R=301,L]
+
+# Redirección para asegurar www
+RewriteCond %{HTTP_HOST} ^cousoworks\.es$ [NC]
+RewriteRule ^(.*)$ https://www.cousoworks.es/$1 [R=301,L]
