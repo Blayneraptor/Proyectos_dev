@@ -34,6 +34,83 @@
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="stylesheet" href="css/carousel-arrows.css">
     
+    <!-- Precargar y aplicar contenido inmediatamente -->
+    <style>
+        /* Aplicar fondo oscuro inicial para evitar parpadeo y crear el efecto deseado */
+        body { 
+            background: #181a1b;
+            opacity: 1;
+            transition: background-color 1.6s ease-out;
+        }
+        body.loaded {
+            background: transparent;
+        }
+        /* Asegurar que el contenido esté visible desde el inicio */
+        .logo__wrapper {
+            visibility: visible !important;
+            opacity: 1 !important;
+            animation: none !important;
+        }
+    </style>
+    
+    <script>
+        // Definir el contenido por defecto inmediatamente
+        var language = {
+            en: {
+                home: "Inicio",
+                about: "Sobre mi", 
+                skills: "Skills",
+                portfolio: "Proyectos",
+                education: "Education",
+                contact: "Contacto",
+                authorLogo: "Jose P. Couso Pérez",
+                aboutTitle: "Bienvenido a mi Portfolio",
+                aboutSubtitle: "Desarrollador Web de Madrid",
+                aboutText: "<p>Con más de 10 años de experiencia en el Ejército, he redirigido mi carrera hacia la tecnología de la información, motivado por mi pasión por la informática. Busco unirme a una empresa donde pueda aportar mis habilidades y seguir creciendo profesionalmente. – <strong>Desarrollador Web y Apps</strong>.</p>\n    <p>Me caracterizan tres principios clave: pasión por la tecnología, compromiso con el aprendizaje continuo y habilidad para enfrentar nuevos retos. Estoy enfocado en el desarrollo de webs (front-end) y actualmente perfecciono mis conocimientos con React, TailwindCSS, Vue, JavaScript, CSS y HTML5.</p>\n    <p>Mis características principales son <strong>la perseverancia</strong> y <strong>la tenacidad</strong> para alcanzar los objetivos: resolver el problema antes de obtener el resultado final. Trato de hacer cualquier trabajo de manera eficiente, responsable y precisa.</p>\n    <p>Entiendo que el autoaprendizaje no es suficiente y que se necesita experiencia real trabajando con desarrolladores web profesionales. Estoy dispuesto a <strong>desarrollarme</strong> y <strong>aprender</strong> constantemente, siendo parte del equipo.</p>",
+                aboutResume: "Descarga mi CV",
+                skillsTitle: "Habilidades",
+                portfolioTilte: "Proyectos",
+                projectOne: "Blayne Piano Covers - Portfolio",
+                projectTwo: "Tienda de móviles - React",
+                projectThree: "Bella Italia Restaurante - React",
+                projectFour: "Buscador Anime - Vue",
+                projectFive: "E-commerce Padel Shop",
+                projectLink: "Herramientas y código ",
+                projectLinkOne: "React, Vite, TailwindCSS",
+                projectLinkTwo: "HTML, CSS, JavaScript",
+                projectLinkThree: "React, TailwindCSS, Vite",
+                projectLinkFour: "Vue, API Kitsu, JS, CSS",
+                projectLinkFive: "React, Vite, TailwindCSS, ApiREST, Web Scraping con Python",
+                ProjectSix: "Curriculum Web Jose Couso",
+                contactTitle: "Contacta conmigo",
+                sendMessage: "Enviar mensaje",
+                footerDeveloper: "© 2025 cousoworks",
+                name: "Nombre",
+                mail: "Email",
+                message: "Mensaje..."
+            }
+        };
+        
+        // Aplicar contenido inmediatamente cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Aplicar traducciones inmediatamente
+            document.querySelectorAll("*").forEach(function(e) {
+                var key = e.dataset.language;
+                if (key !== undefined && language.en[key]) {
+                    if (e.tagName === "INPUT" || e.tagName === "TEXTAREA") {
+                        e.placeholder = language.en[key];
+                    } else {
+                        e.innerHTML = language.en[key];
+                    }
+                }
+            });
+            
+            // Mostrar el contenido con el efecto de transición de fondo
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 1600);
+        });
+    </script>
     
     <!-- Schema.org structured data for a Person -->
     <script type="application/ld+json">
@@ -560,22 +637,8 @@
             <script src="js/scripts/libs.min.js"></script>
             <script src="js/main.min.js"></script>
             <script>
-                // Aplicar traducciones inmediatamente al cargar
-                (function() {
-                    var t = localStorage.getItem("lang") || "en";
-                    if (typeof language !== 'undefined' && language[t]) {
-                        document.querySelectorAll("*").forEach(function(e) {
-                            var key = e.dataset.language;
-                            if (key !== undefined && language[t][key]) {
-                                if (e.tagName === "INPUT" || e.tagName === "TEXTAREA") {
-                                    e.placeholder = language[t][key];
-                                } else {
-                                    e.innerHTML = language[t][key];
-                                }
-                            }
-                        });
-                    }
-                })();
+                // Actualizar el año en el footer
+                document.getElementById('year').textContent = new Date().getFullYear();
             </script>
             </body>
             

@@ -1,36 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:regular,700);
 @import url(https://fonts.googleapis.com/css?family=Hind:regular,500,700);
 
-@-webkit-keyframes smoothLoading {
-    0% {
-        background: #181a1b;
-        opacity: 1
-    }
-    
-    80% {
-        opacity: 1
-    }
-
-    to {
-        opacity: 0
-    }
-}
-
-@keyframes smoothLoading {
-    0% {
-        background: #181a1b;
-        opacity: 1
-    }
-    
-    80% {
-        opacity: 1
-    }
-
-    to {
-        opacity: 0
-    }
-}
-
 
 
 @-webkit-keyframes loadAnimation {
@@ -245,18 +215,6 @@ body {
     position: relative
 }
 
-body.smoothLoading::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: absolute;
-    z-index: 9999;
-    -webkit-animation: smoothLoading 1.6s ease-out;
-    animation: smoothLoading 1.6s ease-out
-}
-
 .container {
     max-width: 1170px;
     padding: 0 15px;
@@ -425,13 +383,10 @@ body.smoothLoading::before {
     -ms-flex-direction: column;
     flex-direction: column;
     height: 100vh;
-    visibility: hidden;
-    -webkit-animation: loadAnimation 3s;
-    animation: loadAnimation 3s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-    -webkit-animation-delay: 1s;
-    animation-delay: 1s
+    visibility: visible;
+    opacity: 1;
+    -webkit-animation: none;
+    animation: none;
 }
 
 .logo__author {
