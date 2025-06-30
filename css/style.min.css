@@ -31,25 +31,7 @@
     }
 }
 
-@-webkit-keyframes animText {
-    0% {
-        opacity: 0
-    }
 
-    to {
-        opacity: 1
-    }
-}
-
-@keyframes animText {
-    0% {
-        opacity: 0
-    }
-
-    to {
-        opacity: 1
-    }
-}
 
 @-webkit-keyframes loadAnimation {
     0% {
@@ -377,28 +359,7 @@ body.smoothLoading::before {
     color: #48b14d
 }
 
-.header__switch {
-    position: absolute;
-    right: 0;
-    color: rgba(255, 255, 255, .71);
-    cursor: pointer
-}
 
-.header__switch-lang {
-    cursor: pointer;
-    -webkit-transition: all .3s linear;
-    -o-transition: all .3s linear;
-    transition: all .3s linear
-}
-
-.header__switch-lang_active {
-    color: #fff;
-    font-weight: 700
-}
-
-.header__switch-lang:hover {
-    color: #fff
-}
 
 .header__scroll_active,
 .header__scroll_active:hover {
@@ -410,12 +371,7 @@ body.smoothLoading::before {
     color: #48b14d
 }
 
-.animText {
-    -webkit-animation: animText 1500ms;
-    animation: animText 1500ms;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards
-}
+
 
 .overlay {
     position: absolute;
@@ -1438,10 +1394,6 @@ input[type=number]::-webkit-outer-spin-button {
         padding: 15px 0
     }
 
-    .header__switch {
-        right: 66px
-    }
-
     .header__hamburger {
         display: block;
         width: 45px;
@@ -1476,9 +1428,7 @@ input[type=number]::-webkit-outer-spin-button {
         transform: rotate(-45deg) translate(1px)
     }
 
-    .logo__title_ru {
-        font-size: 40px
-    }
+
 
     .education .title__education {
         text-align: center
@@ -1553,13 +1503,7 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 44px
     }
 
-    .logo__title_ru {
-        font-size: 35px
-    }
 
-    .title_ru {
-        font-size: 23px
-    }
 
     .slick-dots li {
         width: 9px;
@@ -1591,18 +1535,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 @media (max-width:424px) {
-    .logo__title_ru {
-        font-size: 30px
-    }
 }
 
 @media (max-width:420px) {
     .logo__title {
         font-size: 33px
-    }
-
-    .logo__title_ru {
-        font-size: 30px
     }
 
     .logo__subtitle {
@@ -1617,9 +1554,6 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 @media (max-width:374px) {
-    .logo__title_ru {
-        font-size: 25px
-    }
 }
 
 @media (max-height:540px) {
