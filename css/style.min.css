@@ -6,6 +6,10 @@
         background: #181a1b;
         opacity: 1
     }
+    
+    80% {
+        opacity: 1
+    }
 
     to {
         opacity: 0
@@ -15,6 +19,10 @@
 @keyframes smoothLoading {
     0% {
         background: #181a1b;
+        opacity: 1
+    }
+    
+    80% {
         opacity: 1
     }
 
@@ -263,8 +271,8 @@ body.smoothLoading::before {
     left: 0;
     position: absolute;
     z-index: 9999;
-    -webkit-animation: smoothLoading 3s;
-    animation: smoothLoading 3s
+    -webkit-animation: smoothLoading 1.6s ease-out;
+    animation: smoothLoading 1.6s ease-out
 }
 
 .container {
