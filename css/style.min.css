@@ -285,7 +285,21 @@ body {
     color: inherit !important;
     text-decoration: none !important;
     transition: all 0.3s ease !important;
-    display: block !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.header__logo-img {
+    height: 28px !important;
+    width: auto !important;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) !important;
+    transition: all 0.4s ease !important;
+}
+
+.header_active .header__logo-img {
+    height: 24px !important;
+    filter: none !important;
 }
 
 .header__logo-link:hover {
@@ -384,12 +398,13 @@ body {
     background: transparent !important;
     border: none !important;
     cursor: pointer !important;
-    padding: 10px !important;
+    padding: 12px 10px !important;
     border-radius: 8px !important;
     transition: all 0.3s ease !important;
     z-index: 1000 !important; /* Mayor z-index para que esté sobre el menú */
     position: relative !important;
     outline: none !important;
+    overflow: visible !important; /* Asegura que las líneas no se recorten */
 }
 
 .header__hamburger:hover {
@@ -411,8 +426,13 @@ body {
 }
 
 /* Animación hamburger activo */
+.header__hamburger.active .header__line {
+    background: #2c3e50 !important; /* Siempre negro/oscuro cuando está activo */
+}
+
 .header__hamburger.active .header__line:nth-child(1) {
-    transform: translateY(9px) rotate(45deg) !important;
+    transform: translateY(8px) rotate(45deg) !important;
+    width: 28px !important; /* Asegurar que la línea sea suficientemente larga */
 }
 
 .header__hamburger.active .header__line:nth-child(2) {
@@ -421,7 +441,8 @@ body {
 }
 
 .header__hamburger.active .header__line:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg) !important;
+    transform: translateY(-8px) rotate(-45deg) !important;
+    width: 28px !important; /* Asegurar que la línea sea suficientemente larga */
 }
 
 
@@ -1397,6 +1418,14 @@ input[type=number]::-webkit-outer-spin-button {
     .header_active .header__logo {
         font-size: 18px !important;
     }
+    
+    .header__logo-img {
+        height: 24px !important;
+    }
+    
+    .header_active .header__logo-img {
+        height: 20px !important;
+    }
 
     /* Mostrar hamburger */
     .header__hamburger {
@@ -1426,8 +1455,13 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     /* Animación hamburger activo */
+    .header__hamburger.active .header__line {
+        background: #2c3e50 !important; /* Siempre negro/oscuro cuando está activo */
+    }
+    
     .header__hamburger.active .header__line:nth-child(1) {
         transform: translateY(6px) rotate(45deg) !important;
+        width: 25px !important; /* Asegura que la línea no se corte */
     }
 
     .header__hamburger.active .header__line:nth-child(2) {
@@ -1437,6 +1471,7 @@ input[type=number]::-webkit-outer-spin-button {
 
     .header__hamburger.active .header__line:nth-child(3) {
         transform: translateY(-6px) rotate(-45deg) !important;
+        width: 25px !important; /* Asegura que la línea no se corte */
     }
 
     /* Ocultar navegación desktop */
