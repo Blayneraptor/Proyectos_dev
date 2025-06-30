@@ -34,8 +34,188 @@
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="stylesheet" href="css/carousel-arrows.css">
     
-    <!-- Precargar y aplicar contenido inmediatamente -->
+    <!-- Lazy Loading moderno y con blur -->
     <style>
+        /* Modern Preloader Styles */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/img/bg.png') center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+
+        .preloader::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/img/bg.png') center/cover no-repeat;
+            filter: blur(8px);
+            z-index: -1;
+        }
+
+        .preloader::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(24, 26, 27, 0.7) 0%, rgba(45, 52, 54, 0.8) 50%, rgba(24, 26, 27, 0.7) 100%);
+            z-index: -1;
+        }
+
+        .preloader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-content {
+            text-align: center;
+            color: white;
+        }
+
+
+
+        .loading-circle {
+            width: 80px;
+            height: 80px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            position: relative;
+            animation: rotateOuter 2s linear infinite;
+        }
+
+        .loading-circle-inner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid transparent;
+            border-top: 3px solid #007bff;
+            border-right: 3px solid #007bff;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotateInner 1.5s linear infinite reverse;
+        }
+        
+        .loading-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+            animation: logoPulse 2s ease-in-out infinite;
+        }
+        
+        .loading-logo img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 5px rgba(0, 123, 255, 0.7));
+        }
+
+        .loading-text {
+            font-family: 'Lato', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+            color: #007bff;
+            letter-spacing: 2px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .loading-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .loading-progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border-radius: 2px;
+            animation: loadProgress 1.5s ease-out forwards;
+        }
+
+        .loading-subtitle {
+            font-family: 'Hind', sans-serif;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 10px 0 0 0;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+
+        @keyframes rotateOuter {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes rotateInner {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+        
+        @keyframes logoPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); filter: drop-shadow(0 0 5px rgba(0, 123, 255, 0.7)); }
+            50% { transform: translate(-50%, -50%) scale(1.15); filter: drop-shadow(0 0 8px rgba(0, 123, 255, 0.9)); }
+        }
+
+        @keyframes loadProgress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        @keyframes fadeInUp {
+            0% { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        /* Ocultar contenido principal hasta que termine la carga */
+        body:not(.loaded) {
+            overflow: hidden; /* Ocultar scroll durante la carga */
+        }
+        
+        body:not(.loaded) .header,
+        body:not(.loaded) .main,
+        body:not(.loaded) .footer {
+            opacity: 0;
+            pointer-events: none;
+        }
+
         /* Aplicar fondo oscuro inicial para evitar parpadeo y crear el efecto deseado */
         body { 
             background: #181a1b;
@@ -44,7 +224,16 @@
         }
         body.loaded {
             background: transparent;
+            overflow: auto; /* Restaurar scroll cuando termine la carga */
         }
+        body.loaded .header,
+        body.loaded .main,
+        body.loaded .footer {
+            opacity: 1;
+            pointer-events: auto;
+            transition: opacity 0.5s ease-in-out;
+        }
+
         /* Asegurar que el contenido esté visible desde el inicio */
         .logo__wrapper {
             visibility: visible !important;
@@ -105,10 +294,7 @@
                 }
             });
             
-            // Mostrar el contenido con el efecto de transición de fondo
-            setTimeout(function() {
-                document.body.classList.add('loaded');
-            }, 1600);
+            // El lazy loading ya se gestiona en main.min.js
         });
     </script>
     
@@ -141,11 +327,28 @@
 </head>
 
 <body>
+    <!-- Preloader con blur y efecto moderno -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="loading-circle">
+                <div class="loading-circle-inner"></div>
+                <div class="loading-logo">
+                    <img src="assets/img/logoblayne.png" alt="CousoWorks Logo" width="30">
+                </div>
+            </div>
+            <h2 class="loading-text">CousoWorks</h2>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p class="loading-subtitle">Cargando portfolio...</p>
+        </div>
+    </div>
+
     <header class="header">
         <div class="container">
             <div class="header__wrapper" data-scroll-header>
                 <div class="header__logo"><a class="header__logo-link" href="https://github.com/Blayneraptor"
-                        target="_blank">CousoWorks</a></div><button class="header__hamburger"><span
+                        target="_blank">CousoWorks</a></div><button class="header__hamburger" aria-label="Menú de navegación" type="button"><span
                         class="header__line"></span> <span class="header__line"></span> <span
                         class="header__line"></span></button>
                 <nav class="header__navigation">
