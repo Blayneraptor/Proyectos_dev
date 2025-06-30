@@ -104,7 +104,7 @@
                                     src="assets/img/logo/author.jpg" alt="author" class="logo__image">
                             </picture>
                         </div>
-                        <h1 class="logo__title" data-language="authorLogo">José Pascual Couso Pérez</h1>
+                        <h1 class="logo__title" data-language="authorLogo">Jose P. Couso Pérez</h1>
                         <div class="logo__subtitle-wrapper">
                             <div class="logo__subtitle">Back-End</div>
                             <div class="logo__subtitle">Front-End</div>
@@ -118,10 +118,8 @@
             <div class="container">
                 <div class="about__wrapper">
                     <div class="about__author">
-                        <h2 class="title title__about" data-language="aboutTitle">Hola, Soy José Pascual Couso Pérez</h2>
-                        <div class="subtitle subtitle__about" data-language="aboutSubtitle">Web Developer de Madrid
-                        </div>
-
+                        <h2 class="title title__about" data-language="aboutTitle">Bienvenido a mi Portfolio</h2>
+                        <div class="subtitle subtitle__about" data-language="aboutSubtitle">Desarrollador Web de Madrid</div>
 
                         <div class="text text__about" data-language="aboutText"></div>
                         <ul class="social social__about">
@@ -562,6 +560,24 @@
             </footer>
             <script src="js/scripts/libs.min.js"></script>
             <script src="js/main.min.js"></script>
+            <script>
+                // Aplicar traducciones inmediatamente al cargar
+                (function() {
+                    var t = localStorage.getItem("lang") || "en";
+                    if (typeof language !== 'undefined' && language[t]) {
+                        document.querySelectorAll("*").forEach(function(e) {
+                            var key = e.dataset.language;
+                            if (key !== undefined && language[t][key]) {
+                                if (e.tagName === "INPUT" || e.tagName === "TEXTAREA") {
+                                    e.placeholder = language[t][key];
+                                } else {
+                                    e.innerHTML = language[t][key];
+                                }
+                            }
+                        });
+                    }
+                })();
+            </script>
             </body>
             
 
