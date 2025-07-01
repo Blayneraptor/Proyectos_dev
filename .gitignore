@@ -1,0 +1,65 @@
+# ===========================================
+# GITIGNORE PARA PORTFOLIO PERSONAL
+# Excluye archivos sensibles y de desarrollo
+# ===========================================
+
+# Configuraciones de desarrollo local
+.vscode/
+.vs/
+*.code-workspace
+
+# Archivos de configuración de hosting sensibles
+vercel-redirect.json
+vercel.json
+.vercel/
+
+# Archivos de entorno y configuración
+.env
+.env.local
+.env.development
+.env.production
+*.local
+
+# Logs y archivos temporales
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.eslintcache
+
+# Dependencias (si usas npm/yarn)
+node_modules/
+.pnpm-debug.log*
+
+# Archivos de sistema
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Archivos de respaldo
+*.bak
+*.backup
+*.tmp
+*.temp
+
+# Archivos específicos del proyecto que pueden contener info sensible
+# (descomenta si los tienes)
+# config.js
+# api-keys.js
+# secrets.json
+
+# Mantener estos archivos públicos (comentados para claridad):
+# README.md
+# index.html
+# css/
+# js/
+# assets/
+# robots.txt
+# sitemap.xml
+# google*.html
+# CNAME
