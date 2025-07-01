@@ -10,12 +10,11 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     z-index: 5;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s ease-out;
     border: none;
     opacity: 1;
-    display: block !important; /* Asegurar que sean visibles */
-    transform-origin: center center; /* Punto de origen para transformaciones */
-    will-change: transform, background-color, box-shadow; /* Optimización de renderizado */
+    display: block !important;
+    transform-origin: center center;
 }
 
 .slick-prev {
@@ -36,8 +35,7 @@
     height: 15px;
     border-style: solid;
     border-width: 2px 2px 0 0;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform, border-color;
+    transition: border-color 0.2s ease-out;
 }
 
 .slick-prev::before {
@@ -52,9 +50,8 @@
 
 .slick-arrow:hover {
     background-color: #48b14d;
-    transform: translateY(-50%) scale(1.1);
+    transform: translateY(-50%) scale(1.05);
     box-shadow: 0 3px 8px rgba(72, 177, 77, 0.4);
-    animation: none; /* Detener la animación de pulso en hover */
 }
 
 .slick-arrow:hover::before {
@@ -73,28 +70,7 @@
         /* Asegurar posición estable */
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
-        perspective: 1000px;
-    }
-    
-    /* Animación de pulso para las flechas - Más suave y estable */
-    @keyframes pulse {
-        0% { 
-            transform: translateY(-50%) scale(1);
-            opacity: 0.8;
-        }
-        50% { 
-            transform: translateY(-50%) scale(1.02);
-            opacity: 1;
-        }
-        100% { 
-            transform: translateY(-50%) scale(1);
-            opacity: 0.8;
-        }
-    }
-
-    .slick-arrow:not(:hover) {
-        animation: pulse 3s ease-in-out infinite;
-        transform-origin: center center;
+        transform: translateY(-50%);
     }
 }
 
