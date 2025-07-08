@@ -24,37 +24,37 @@ Hola, soy Jose 👋, un apasionado/a desarrollador/a en constante aprendizaje. E
 
 ## 💼 Proyectos Destacados
 
-### 🖼️ Proyecto 1: [Blayne Piano Covers](https://blayneraptor.github.io/Portfolio_Piano/)
+### 🖼️ Proyecto 1: [Piano Covers](https://piano-covers.vercel.app/)
 
 **Descripción:** Grabo covers de canciones en piano que voy aprendiendo y las subo a esta web.
 
-- 🔧 **Tecnologías:** HTML, CSS, JavaScript
-- 🌐 **Demo:** [Enlace a la demo](https://blayneraptor.github.io/Portfolio_Piano/)
-- 📂 **Código:** [Repositorio del proyecto](https://github.com/Blayneraptor/Portfolio_Piano)
+- 🔧 **Tecnologías:** React, TawilwindCSS, JavaScript
+- 🌐 **Demo:** [Enlace a la demo](https://piano-covers.vercel.app/)
+- 📂 **Código:** [Repositorio del proyecto](https://github.com/cousoworks/piano-covers)
 
-### 🖥️ Proyecto 2: [CV Web Couso](https://blayneraptor.github.io/CV_Couso_Web/)
+### 🖥️ Proyecto 2: [CV Web Couso](https://cousoworks.github.io/CV_Couso_Web/)
 
 **Descripción:** Un curriculum en forma de Web que quise construir.
 
 - 🔧 **Tecnologías:** HTML, CSS, JavaScript
-- 🌐 **Demo:** [Enlace a la demo](https://blayneraptor.github.io/CV_Couso_Web/)
-- 📂 **Código:** [Repositorio del proyecto](https://github.com/Blayneraptor/CV_Couso_Web)
+- 🌐 **Demo:** [Enlace a la demo](https://cousoworks.github.io/CV_Couso_Web/)
+- 📂 **Código:** [Repositorio del proyecto](https://github.com/cousoworks/CV_Couso_Web)
 
-### 📱 Proyecto 3: [Tienda de móviles - Blayne Shop](https://tienda-moviles-react.vercel.app/)
+### 📱 Proyecto 3: [Tienda de móviles - Tech Mobile](https://tienda-moviles-react.vercel.app/)
 
 **Descripción:** Aplicación e-commerce para la venta de dispositivos móviles con carrito de compras.
 
 - 🔧 **Tecnologías:** React, CSS, JavaScript
 - 🌐 **Demo:** [Enlace a la demo](https://tienda-moviles-react.vercel.app/)
-- 📂 **Código:** [Repositorio del proyecto](https://github.com/Blayneraptor/tienda-moviles-react)
+- 📂 **Código:** [Repositorio del proyecto](https://github.com/cousoworks/tienda-moviles-react)
 
-### 🎬 Proyecto 4: [Buscador Anime Vue](https://animeblayneweb.vercel.app/)
+### 🎬 Proyecto 4: [Buscador Anime Vue](https://animefindweb.vercel.app/)
 
 **Descripción:** Aplicación web para buscar información sobre series de anime utilizando Vue.js.
 
 - 🔧 **Tecnologías:** Vue.js, CSS, JavaScript, APIs
-- 🌐 **Demo:** [Enlace a la demo](https://animeblayneweb.vercel.app/)
-- 📂 **Código:** [Repositorio del proyecto](https://github.com/Blayneraptor/vue-anime-app)
+- 🌐 **Demo:** [Enlace a la demo](https://animefindweb.vercel.app/)
+- 📂 **Código:** [Repositorio del proyecto](https://github.com/cousoworks/vue-anime-app)
 
 ### 🏸 Proyecto 5: [E-commerce Padel Shop](https://e-commerce-padel.vercel.app/)
 
@@ -62,7 +62,7 @@ Hola, soy Jose 👋, un apasionado/a desarrollador/a en constante aprendizaje. E
 
 - 🔧 **Tecnologías:** React, TailwindCSS, JavaScript
 - 🌐 **Demo:** [Enlace a la demo](https://e-commerce-padel.vercel.app/)
-- 📂 **Código:** [Repositorio del proyecto](https://github.com/Blayneraptor/e-commerce-padel)
+- 📂 **Código:** [Repositorio del proyecto](https://github.com/cousoworks/e-commerce-padel)
 
 > ¡Sigue explorando más proyectos en este repositorio! 😄
 
