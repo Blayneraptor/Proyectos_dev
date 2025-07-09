@@ -240,6 +240,187 @@
             opacity: 1 !important;
             animation: none !important;
         }
+
+        /* Estilos para el desplegable de proyectos similares */
+        .similar-projects {
+            margin-top: 10px;
+            overflow: hidden;
+            max-height: 0;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            background-color: rgba(72, 177, 77, 0.05);
+            border-radius: 8px;
+            padding: 0 15px;
+            transform: translateY(-10px);
+            box-shadow: none;
+            max-width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .similar-projects.active {
+            max-height: 200px;
+            opacity: 1;
+            padding: 18px;
+            margin-top: 15px;
+            border-top: 1px solid rgba(72, 177, 77, 0.2);
+            transform: translateY(0);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .similar-projects__title {
+            font-size: 15px;
+            color: #48b14d;
+            margin-bottom: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .similar-projects__list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .similar-projects__item {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            transition: transform 0.3s;
+        }
+
+        .similar-projects__item:hover {
+            transform: translateX(5px);
+        }
+
+        .similar-projects__item::before {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #48b14d;
+        }
+
+        .similar-projects__link {
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding: 4px 0;
+            font-weight: 500;
+        }
+
+        .similar-projects__link:hover {
+            color: #48b14d;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        .toggle-projects-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(72, 177, 77, 0.1);
+            border: 1px solid rgba(72, 177, 77, 0.3);
+            border-radius: 4px;
+            color: #48b14d;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 12px;
+            padding: 8px 16px;
+            transition: all 0.3s;
+            font-family: inherit;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toggle-projects-btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.7s;
+        }
+
+        .toggle-projects-btn:hover {
+            background: rgba(72, 177, 77, 0.2);
+            color: #5fcc64;
+            box-shadow: 0 2px 8px rgba(72, 177, 77, 0.2);
+            transform: translateY(-1px);
+        }
+        
+        .toggle-projects-btn:hover::after {
+            left: 100%;
+        }
+
+        .toggle-projects-btn i {
+            display: inline-block;
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-projects-btn.active i {
+            transform: rotate(180deg);
+        }
+
+        /* Estilo del icono de flecha */
+        .arrow-icon {
+            display: inline-flex;
+            width: 18px;
+            height: 18px;
+            border: solid #48b14d;
+            border-width: 0 2px 2px 0;
+            padding: 3px;
+            transform: rotate(45deg);
+            margin-left: 10px;
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            position: relative;
+            top: -2px;
+        }
+
+        .toggle-projects-btn.active .arrow-icon {
+            transform: rotate(-135deg) scale(1.2);
+        }
+        
+        /* Efecto de pulso para captar la atención */
+        @keyframes pulse-arrow {
+            0% { opacity: 0.7; transform: rotate(45deg) scale(1); }
+            50% { opacity: 1; transform: rotate(45deg) scale(1.2); }
+            100% { opacity: 0.7; transform: rotate(45deg) scale(1); }
+        }
+        
+        /* Aplicar animación cuando no está activo para llamar la atención */
+        .toggle-projects-btn:not(.active) .arrow-icon {
+            animation: pulse-arrow 2s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            .similar-projects {
+                padding: 0 10px;
+                max-width: 95%;
+            }
+            
+            .similar-projects.active {
+                padding: 10px;
+            }
+        }
     </style>
     
     <script>
@@ -619,6 +800,24 @@
                             <div class="project__github-link" data-language="projectLink">Project link:</div><a
                                 href="https://github.com/cousoworks/bella-italia-restaurante" class="project__link" target="_blank"
                                 data-language="projectLinkThree">Restaurante italiano</a>
+                            
+                            <!-- Botón desplegable para proyectos similares -->
+                            <button class="toggle-projects-btn" id="toggleBellaItalia">
+                                🍽️ Ver más versiones de restaurantes <i class="arrow-icon"></i>
+                            </button>
+                            
+                            <!-- Contenedor de proyectos similares -->
+                            <div class="similar-projects" id="bellaItaliaProjects">
+                                <div class="similar-projects__title">🔍 Explora más proyectos de restaurantes:</div>
+                                <div class="similar-projects__list">
+                                    <div class="similar-projects__item">
+                                        <a href="https://smashbros-burgers.vercel.app/" target="_blank" class="similar-projects__link">🍔 Smash Bros Burgers</a>
+                                    </div>
+                                    <div class="similar-projects__item">
+                                        <a href="https://kebab-delicia.vercel.app/" target="_blank" class="similar-projects__link">🥙 Kebab Delicia</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="project__item">
                             <div class="project__name" data-language="projectFour">Buscador Anime Vue</div>
@@ -839,6 +1038,20 @@
             <script>
                 // Actualizar el año en el footer
                 document.getElementById('year').textContent = new Date().getFullYear();
+                
+                // Funcionalidad del desplegable para proyectos similares
+                document.addEventListener('DOMContentLoaded', function() {
+                    const toggleBtn = document.getElementById('toggleBellaItalia');
+                    const projectsContainer = document.getElementById('bellaItaliaProjects');
+                    
+                    if (toggleBtn && projectsContainer) {
+                        toggleBtn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            projectsContainer.classList.toggle('active');
+                            toggleBtn.classList.toggle('active');
+                        });
+                    }
+                });
             </script>
             </body>
             
