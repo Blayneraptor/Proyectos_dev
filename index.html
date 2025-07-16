@@ -39,10 +39,23 @@
     <link rel="canonical" href="https://www.cousoworks.es/">
     
     <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <!-- Precarga del logo principal para mejorar LCP -->
+    <link rel="preload" fetchpriority="high" as="image" href="assets/img/logocouso.webp" type="image/webp" media="(min-width: 0px)">
+    <link rel="preload" fetchpriority="high" as="image" href="assets/img/logocouso.png" type="image/png" media="(min-width: 0px)">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com"crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <link rel="stylesheet" href="css/logo-optimize.css">
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="stylesheet" href="css/carousel-arrows.css">
     <link rel="stylesheet" href="css/project-images.css">
+    <link rel="stylesheet" href="css/project-images-fix.css">
     <link rel="stylesheet" href="css/author-logo.css">
+    
+    <!-- Script de optimización de logo -->
+    <script src="js/convert-logo.js" defer></script>
+    <!-- Script para limpiar imágenes de proyectos -->
+    <script src="js/clean-project-images.js" defer></script>
     
     <!-- Lazy Loading moderno y con blur -->
     <style>
@@ -524,7 +537,10 @@
             <div class="loading-circle">
                 <div class="loading-circle-inner"></div>
                 <div class="loading-logo">
-                    <img src="assets/img/logocouso.png" alt="CousoWorks Logo" width="30">
+                    <picture>
+                        <source srcset="assets/img/logocouso.webp" type="image/webp">
+                        <img src="assets/img/logocouso.png" alt="CousoWorks Logo" width="30" height="30" fetchpriority="high">
+                    </picture>
                 </div>
             </div>
             <h2 class="loading-text">CousoWorks</h2>
@@ -539,7 +555,11 @@
         <div class="container">
             <div class="header__wrapper" data-scroll-header>
                 <div class="header__logo"><a class="header__logo-link" href="https://github.com/cousoworks"
-                        target="_blank"><img src="assets/img/logocouso.png" alt="Logo" class="header__logo-img">CousoWorks</a></div><button class="header__hamburger" aria-label="Menú de navegación" type="button"><span
+                        target="_blank">
+                        <picture class="logo-picture">
+                            <source srcset="assets/img/logocouso.webp" type="image/webp">
+                            <img src="assets/img/logocouso.png" alt="Logo" class="header__logo-img" width="30" height="30" fetchpriority="high">
+                        </picture>CousoWorks</a></div><button class="header__hamburger" aria-label="Menú de navegación" type="button"><span
                         class="header__line"></span> <span class="header__line"></span> <span
                         class="header__line"></span></button>
                 <nav class="header__navigation">

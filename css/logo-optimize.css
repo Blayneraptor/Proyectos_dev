@@ -1,0 +1,57 @@
+/* Optimización para LCP - Logos */
+.header__logo-img {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+  /* Fondo transparente para el logo */
+  background-color: transparent;
+  content-visibility: auto; /* Optimiza el renderizado */
+}
+
+/* Asegurar que las imágenes del logo se muestran inmediatamente */
+.logo-picture {
+  display: inline-block;
+  position: relative;
+  line-height: 0;
+}
+
+/* Optimizaciones específicas para la imagen del logo en el header */
+.optimized-logo {
+  will-change: transform; /* Ayuda a que se renderice en su propia capa */
+  transform: translateZ(0); /* Fuerza aceleración por hardware */
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Prevenir el cambio de disposición durante la carga */
+picture img {
+  display: block;
+}
+
+/* Clase que se añade cuando la optimización del logo está lista */
+.logo-optimized .header__logo-img {
+  transition: opacity 0.2s ease-in;
+}
+
+/* Estilos para el preloader */
+.preloader .loading-logo img {
+  will-change: transform;
+  transform: translateZ(0);
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Optimización específica para el LCP - Logo en la cabecera */
+.header__logo {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Forzar visibilidad del logo en todos los contextos */
+img[src*="logocouso"] {
+  visibility: visible !important;
+  opacity: 1 !important;
+  content-visibility: auto;
+}
