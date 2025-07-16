@@ -728,7 +728,7 @@ body {
 }
 
 .button__about:hover {
-    background: #48b14d;
+    background: #1E90FF;
     padding-right: 70px
 }
 
@@ -884,7 +884,7 @@ body {
 
 
 .skills__item_show::after {
-    background: #48b14d;
+    background: #1E90FF;
     content: "";
     -webkit-transition: all .3s linear;
     -o-transition: all .3s linear;
@@ -936,7 +936,7 @@ body {
 }
 
 .project__link:hover {
-    color: #48b14d;
+    color: #1E90FF;
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1)
@@ -1010,7 +1010,7 @@ body {
 }
 
 .slick-dots li.slick-active {
-    background: #48b14d;
+    background: #1E90FF;
     width: 20px;
     height: 20px
 }
@@ -1092,7 +1092,7 @@ body {
 }
 
 .codewars__link:hover {
-    color: #48b14d
+    color: #1E90FF
 }
 
 .list {
@@ -1218,7 +1218,7 @@ body {
 }
 
 .contact .button__form:hover {
-    background: #48b14d
+    background: #1E90FF
 }
 
 .contact .button__form::after {

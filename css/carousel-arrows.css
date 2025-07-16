@@ -49,9 +49,9 @@
 }
 
 .slick-arrow:hover {
-    background-color: #48b14d;
+    background-color: #1E90FF;
     transform: translateY(-50%) scale(1.05);
-    box-shadow: 0 3px 8px rgba(72, 177, 77, 0.4);
+    box-shadow: 0 3px 8px rgba(30, 144, 255, 0.4);
 }
 
 .slick-arrow:hover::before {

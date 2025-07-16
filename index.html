@@ -271,7 +271,7 @@
             max-height: 0;
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             opacity: 0;
-            background-color: rgba(72, 177, 77, 0.05);
+            background-color: #f8f9fa;
             border-radius: 8px;
             padding: 0 15px;
             transform: translateY(-10px);
@@ -286,19 +286,21 @@
             opacity: 1;
             padding: 18px;
             margin-top: 15px;
-            border-top: 1px solid rgba(72, 177, 77, 0.2);
+            border: 1px solid #e9ecef;
             transform: translateY(0);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
 
         .similar-projects__title {
-            font-size: 15px;
-            color: #48b14d;
+            font-size: 16px;
+            color: #333;
             margin-bottom: 12px;
-            font-weight: 600;
+            font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 8px;
         }
 
         .similar-projects__list {
@@ -319,15 +321,14 @@
         }
 
         .similar-projects__item::before {
-            content: "";
+            content: "•";
             position: absolute;
             left: 5px;
             top: 50%;
             transform: translateY(-50%);
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: #48b14d;
+            color: #1E90FF;
+            font-size: 16px;
+            line-height: 0;
         }
 
         .similar-projects__link {
@@ -346,7 +347,7 @@
         }
 
         .similar-projects__link:hover {
-            color: #48b14d;
+            color: #1E90FF;
             font-weight: 600;
             text-decoration: underline;
         }
@@ -355,16 +356,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(72, 177, 77, 0.1);
-            border: 1px solid rgba(72, 177, 77, 0.3);
-            border-radius: 4px;
-            color: #48b14d;
+            background: #ffffff;
+            border: 2px solid #1E90FF;
+            border-radius: 8px;
+            color: #1E90FF;
             cursor: pointer;
             font-size: 14px;
             font-weight: 600;
-            margin-top: 12px;
-            padding: 8px 16px;
-            transition: all 0.3s;
+            margin-top: 16px;
+            padding: 12px 20px;
+            transition: all 0.3s ease;
             font-family: inherit;
             width: 100%;
             position: relative;
@@ -378,15 +379,16 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.7s;
+            background: linear-gradient(90deg, transparent, rgba(30, 144, 255, 0.1), transparent);
+            transition: left 0.5s ease;
         }
 
         .toggle-projects-btn:hover {
-            background: rgba(72, 177, 77, 0.2);
-            color: #5fcc64;
-            box-shadow: 0 2px 8px rgba(72, 177, 77, 0.2);
+            background: #1E90FF;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(30, 144, 255, 0.3);
             transform: translateY(-1px);
+            border-color: #1E90FF;
         }
         
         .toggle-projects-btn:hover::after {
@@ -406,27 +408,32 @@
         /* Estilo del icono de flecha */
         .arrow-icon {
             display: inline-flex;
-            width: 18px;
-            height: 18px;
-            border: solid #48b14d;
+            width: 12px;
+            height: 12px;
+            border: solid #1E90FF;
             border-width: 0 2px 2px 0;
-            padding: 3px;
+            padding: 2px;
             transform: rotate(45deg);
-            margin-left: 10px;
-            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            margin-left: 8px;
+            transition: all 0.3s ease;
             position: relative;
-            top: -2px;
+            top: -1px;
+        }
+
+        .toggle-projects-btn:hover .arrow-icon {
+            border-color: #ffffff;
         }
 
         .toggle-projects-btn.active .arrow-icon {
-            transform: rotate(-135deg) scale(1.2);
+            transform: rotate(-135deg);
+            border-color: #ffffff;
         }
         
         /* Efecto de pulso para captar la atención */
         @keyframes pulse-arrow {
-            0% { opacity: 0.7; transform: rotate(45deg) scale(1); }
-            50% { opacity: 1; transform: rotate(45deg) scale(1.2); }
-            100% { opacity: 0.7; transform: rotate(45deg) scale(1); }
+            0% { opacity: 1; transform: rotate(45deg) scale(1); }
+            50% { opacity: 0.7; transform: rotate(45deg) scale(1.1); }
+            100% { opacity: 1; transform: rotate(45deg) scale(1); }
         }
         
         /* Aplicar animación cuando no está activo para llamar la atención */
@@ -834,12 +841,12 @@
                             
                             <!-- Botón desplegable para proyectos similares -->
                             <button class="toggle-projects-btn" id="toggleBellaItalia">
-                                🍽️ Ver más versiones de restaurantes <i class="arrow-icon"></i>
+                                🍽️ Ver proyectos similares <i class="arrow-icon"></i>
                             </button>
                             
                             <!-- Contenedor de proyectos similares -->
                             <div class="similar-projects" id="bellaItaliaProjects">
-                                <div class="similar-projects__title">🔍 Explora más proyectos de restaurantes:</div>
+                                <div class="similar-projects__title">🍽️ Proyectos relacionados</div>
                                 <div class="similar-projects__list">
                                     <div class="similar-projects__item">
                                         <a href="https://smashbros-burgers.vercel.app/" target="_blank" class="similar-projects__link">🍔 Smash Bros Burgers</a>
