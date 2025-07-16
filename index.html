@@ -12,6 +12,18 @@
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; media-src 'self'; frame-src 'self'; worker-src 'self'; form-action 'self' https://formspree.io; base-uri 'self'; frame-ancestors 'self';">
+    
+    <!-- Prevenir XSS attacks -->
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    
+    <!-- Prevenir clickjacking -->
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    
+    <!-- Forzar al navegador a usar el tipo de contenido declarado -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="https://www.cousoworks.es/">
     <meta property="og:type" content="website">
