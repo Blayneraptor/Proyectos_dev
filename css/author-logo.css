@@ -1,0 +1,40 @@
+/* Estilos personalizados para el logo del autor */
+.logo__author {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.logo__image {
+  width: 180px !important;
+  height: 180px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.logo__author:hover .logo__image {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* Efecto de resplandor sutil alrededor del logo */
+.logo__author::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.logo__author:hover::after {
+  opacity: 1;
+}

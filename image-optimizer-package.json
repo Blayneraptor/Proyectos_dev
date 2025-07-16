@@ -1,0 +1,12 @@
+{
+  "name": "image-optimizer",
+  "version": "1.0.0",
+  "description": "Script para optimizar imágenes del sitio",
+  "main": "optimize-images.js",
+  "scripts": {
+    "optimize": "node optimize-images.js"
+  },
+  "dependencies": {
+    "sharp": "^0.32.6"
+  }
+}

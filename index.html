@@ -12,17 +12,13 @@
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     
-    <!-- Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; media-src 'self'; frame-src 'self'; worker-src 'self'; form-action 'self' https://formspree.io; base-uri 'self'; frame-ancestors 'self';">
+    <!-- Content Security Policy - Solo para desarrollo local, estas políticas se aplicarán desde vercel.json en producción -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; media-src 'self'; frame-src 'self'; worker-src 'self'; form-action 'self' https://formspree.io; base-uri 'self';">
     
-    <!-- Prevenir XSS attacks -->
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-    
-    <!-- Prevenir clickjacking -->
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    
-    <!-- Forzar al navegador a usar el tipo de contenido declarado -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <!-- Comentamos estos meta tags ya que deben ser cabeceras HTTP, no meta tags (están configurados en vercel.json) -->
+    <!-- <meta http-equiv="X-XSS-Protection" content="1; mode=block"> -->
+    <!-- <meta http-equiv="X-Frame-Options" content="DENY"> -->
+    <!-- <meta http-equiv="X-Content-Type-Options" content="nosniff"> -->
     
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="https://www.cousoworks.es/">
@@ -45,6 +41,8 @@
     <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="stylesheet" href="css/carousel-arrows.css">
+    <link rel="stylesheet" href="css/project-images.css">
+    <link rel="stylesheet" href="css/author-logo.css">
     
     <!-- Lazy Loading moderno y con blur -->
     <style>
@@ -573,7 +571,7 @@
                         <div class="logo__author">
                             <picture>
                                 <source srcset="assets/img/logo/author.jpg" type="image/jpg"><img
-                                    src="assets/img/logo/author.jpg" alt="author" class="logo__image">
+                                    src="assets/img/logo/author.jpg" alt="author" class="logo__image" width="150" height="150">
                             </picture>
                         </div>
                         <h1 class="logo__title" data-language="authorLogo">Jose P. Couso Pérez</h1>
@@ -598,7 +596,7 @@
 
                             <li class="social__item"><a href="tel:+34645448914" class="social__link">
                                     <picture>
-                                        <img src="assets/img/icons/phone.png" alt="contact" class="social__icon">
+                                        <img src="assets/img/icons/phone.png" alt="contact" class="social__icon" width="24" height="24">
                                     </picture>
                                 </a></li>
                             <li class="social__item"><a href="https://github.com/cousoworks" class="social__link"
@@ -620,7 +618,7 @@
                                 <span data-language="aboutResume">Descarga mi CV</span>
                                 <picture>
                                     <source srcset="assets/img/icons/download.webp" type="image/webp">
-                                    <img class="button__download" src="assets/img/icons/download.png" alt="download">
+                                    <img class="button__download" src="assets/img/icons/download.png" alt="download" width="20" height="20">
                                 </picture>
                             </button>
                         </a>
@@ -628,6 +626,7 @@
                     <div class="about__work">
 
                         <div class="skill-tag-cloud"></div>
+                        <!-- Cargar Three.js sin defer para que esté disponible inmediatamente -->
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
                         <script>
                             const scn = new THREE.Scene(),
@@ -751,7 +750,7 @@
                                         <picture>
                                             <source srcset="assets/img/projects/1.png" type="image/webp"><img
                                                 src="assets/img/projects/1.png" alt="Piano Covers"
-                                                class="project__image">
+                                                class="project__image" width="360" height="240">
                                         </picture>
                                     </a></div>
                                 <div class="project__img project__img_mobile"><a
@@ -1024,7 +1023,7 @@
 
                     <li class="social__item"><a href="tel:+34645448914" class="social__link">
                             <picture>
-                                <img src="assets/img/icons/phone.png" alt="contact" class="social__icon">
+                                <img src="assets/img/icons/phone.png" alt="contact" class="social__icon" width="24" height="24">
                             </picture>
                         </a></li>
                     <li class="social__item"><a href="https://github.com/cousoworks" class="social__link"
@@ -1045,8 +1044,12 @@
             </div>
             </div>
             </footer>
-            <script src="js/scripts/libs.min.js"></script>
-            <script src="js/main.min.js"></script>
+            <script src="js/scripts/libs.min.js" defer></script>
+            <script src="js/main.min.js" defer></script>
+            <script src="js/image-dimensions.js"></script>
+            <script src="js/defer-load.js" defer></script>
+            <script src="js/passive-listeners.js" defer></script>
+            <script src="js/async-loader.js" defer></script>
             <script>
                 // Actualizar el año en el footer
                 document.getElementById('year').textContent = new Date().getFullYear();

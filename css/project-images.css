@@ -1,0 +1,75 @@
+/* Estilos adicionales para proyectos */
+.project__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.project__img a {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.project__img picture {
+  display: inline-block;
+}
+
+/* Imagen principal (desktop) */
+.project__img:not(.project__img_mobile) img.project__image {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.5s ease;
+  border-radius: 10px; /* Bordes redondeados para mejor apariencia */
+  display: block;
+  margin: 0 auto; /* Centrar imagen */
+}
+
+/* Imagen móvil */
+.project__img_mobile img.project__image {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.5s ease;
+  border-radius: 8px;
+}
+
+/* Efecto hover */
+.project__img:hover img.project__image {
+  transform: scale(1.025); /* Zoom más sutil */
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15); /* Sombra más pronunciada al pasar el cursor */
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  .project__wrapper {
+    flex-direction: column;
+  }
+  
+  .project__img {
+    margin-bottom: 15px;
+  }
+}
+
+/* Media query para pantallas más grandes */
+@media (min-width: 1200px) {
+  .project__img:not(.project__img_mobile) img.project__image {
+    max-width: 650px; /* Forzar tamaño máximo en pantallas grandes */
+    height: auto;
+  }
+  
+  .project__img_mobile img.project__image {
+    max-width: 180px; /* Forzar tamaño máximo para imágenes móviles */
+  }
+}
+
+/* Media query para pantallas extra grandes */
+@media (min-width: 1600px) {
+  .project__img:not(.project__img_mobile) img.project__image {
+    max-width: 700px; /* Aún más grande en pantallas muy grandes */
+    height: auto;
+  }
+}
