@@ -1,46 +1,67 @@
-/* Estilos adicionales para proyectos */
+/* Estilos consolidados para proyectos - Todo en un archivo */
+
+/* Contenedores principales */
 .project__img {
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   transition: all 0.3s ease;
+  background: none !important;
 }
 
 .project__img a {
   display: block;
   width: 100%;
   text-align: center;
+  line-height: 0;
 }
 
 .project__img picture {
-  display: inline-block;
-}
-
-/* Imagen principal (desktop) */
-.project__img:not(.project__img_mobile) img.project__image {
-  max-width: 100%;
-  height: auto;
-  box-shadow: none; /* Eliminar sombra */
-  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-  border-radius: 0; /* Sin bordes redondeados */
   display: block;
-  margin: 0 auto; /* Centrar imagen */
+  line-height: 0;
 }
 
-/* Imagen móvil */
+/* Eliminar cualquier margen, borde y sombra del contenedor de la imagen */
+.project__image-wrapper {
+  padding: 0;
+  margin-bottom: 20px;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Estilos consolidados para todas las imágenes de proyecto */
+.project__image,
+.project__img img,
+.project__img_pc img,
+.project__img_mobile img,
+.project__img:not(.project__img_mobile) img.project__image,
 .project__img_mobile img.project__image {
   max-width: 100%;
   height: auto;
-  box-shadow: none; /* Eliminar sombra */
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
   transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-  border-radius: 0; /* Sin bordes redondeados */
+  display: block;
+  margin: 0 auto;
 }
 
-/* Efecto hover */
-.project__img:hover img.project__image {
-  transform: scale(1.025); /* Zoom más sutil */
-  /* Sin sombra en hover */
+/* Asegurar que no haya espacio en blanco alrededor de las imágenes */
+.project__img_pc, 
+.project__img_mobile {
+  line-height: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Efecto hover limpio sin sombras */
+.project__img:hover img,
+.project__img:hover img.project__image,
+.project__image:hover {
+  transform: scale(1.025);
+  box-shadow: none !important;
 }
 
 /* Media query para dispositivos móviles */
@@ -71,5 +92,101 @@
   .project__img:not(.project__img_mobile) img.project__image {
     max-width: 700px; /* Aún más grande en pantallas muy grandes */
     height: auto;
+  }
+}
+
+/* Estilos accesibles para botones "Ver proyectos similares" */
+.similar-projects-btn,
+.btn-similar-projects,
+.project__similar-btn,
+[data-action="similar-projects"] {
+  /* Colores con alto contraste para accesibilidad WCAG AA */
+  background-color: #003d82; /* Azul oscuro accesible */
+  color: #ffffff; /* Blanco puro para máximo contraste */
+  border: 2px solid #003d82;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+  /* Asegurar legibilidad */
+  text-align: center;
+  line-height: 1.4;
+  min-height: 44px; /* Tamaño mínimo táctil recomendado */
+  
+  /* Focus visible para navegación por teclado */
+  outline: none;
+}
+
+/* Estado hover con contraste mejorado */
+.similar-projects-btn:hover,
+.btn-similar-projects:hover,
+.project__similar-btn:hover,
+[data-action="similar-projects"]:hover {
+  background-color: #ffffff;
+  color: #003d82;
+  border-color: #003d82;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 61, 130, 0.3);
+}
+
+/* Estado focus para accesibilidad por teclado */
+.similar-projects-btn:focus,
+.btn-similar-projects:focus,
+.project__similar-btn:focus,
+[data-action="similar-projects"]:focus {
+  outline: 3px solid #ffc107; /* Amarillo visible para focus */
+  outline-offset: 2px;
+  background-color: #ffffff;
+  color: #003d82;
+}
+
+/* Estado activo/pressed */
+.similar-projects-btn:active,
+.btn-similar-projects:active,
+.project__similar-btn:active,
+[data-action="similar-projects"]:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 61, 130, 0.4);
+}
+
+/* Estado disabled accesible */
+.similar-projects-btn:disabled,
+.btn-similar-projects:disabled,
+.project__similar-btn:disabled,
+[data-action="similar-projects"]:disabled {
+  background-color: #6c757d;
+  color: #ffffff;
+  border-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Estilos para pantallas de alto contraste */
+@media (prefers-contrast: high) {
+  .similar-projects-btn,
+  .btn-similar-projects,
+  .project__similar-btn,
+  [data-action="similar-projects"] {
+    border-width: 3px;
+    font-weight: 700;
+  }
+}
+
+/* Responsive para botones en móviles */
+@media (max-width: 768px) {
+  .similar-projects-btn,
+  .btn-similar-projects,
+  .project__similar-btn,
+  [data-action="similar-projects"] {
+    width: 100%;
+    max-width: 280px;
+    margin: 8px auto;
+    font-size: 16px; /* Tamaño mínimo para mobile */
+    padding: 14px 20px;
   }
 }
